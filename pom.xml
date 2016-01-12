@@ -22,7 +22,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>rmugattarov.Form</mainClass>
+                            <mainClass>rmugattarov.Login</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

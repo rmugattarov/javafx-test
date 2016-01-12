@@ -1,8 +1,6 @@
 package rmugattarov;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -21,7 +19,7 @@ import javafx.stage.Stage;
 /**
  * Created by rmugattarov on 12.01.2016.
  */
-public class Form extends Application {
+public class Login extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -36,7 +34,7 @@ public class Form extends Application {
         grid.setPadding(new Insets(25, 25, 25, 25));
 
         Text scenetitle = new Text("Welcome");
-        scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+        scenetitle.setId("welcome-text");
         grid.add(scenetitle, 0, 0, 2, 1);
 
         Label userName = new Label("User Name:");
@@ -58,17 +56,15 @@ public class Form extends Application {
         grid.add(hbBtn, 1, 4);
 
         final Text actiontarget = new Text();
+        actiontarget.setId("actiontarget");
         grid.add(actiontarget, 1, 6);
 
-        btn.setOnAction(e -> {
-            actiontarget.setFill(Color.FIREBRICK);
-            actiontarget.setText("Sign in button pressed");
-        });
+        btn.setOnAction(e -> actiontarget.setText("Sign in button pressed"));
 
         Scene scene = new Scene(grid, 300, 275);
         primaryStage.setScene(scene);
-
         primaryStage.setTitle("JavaFX Welcome");
+        scene.getStylesheets().add(Login.class.getClassLoader().getResource("Login.css").toExternalForm());
         primaryStage.show();
     }
 }
